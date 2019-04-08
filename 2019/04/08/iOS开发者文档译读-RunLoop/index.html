@@ -94,14 +94,18 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="RunLoop 概览 一个RunLoop对象可以处理鼠标、键盘输入，端口对象输入，NSConnection对象输入。它也可以处理NSTimer事件。你的应用不用创建或很清晰地管理RunLoop对象。每个线程（包括应用主线程），都有一个自动创建好的RunLoop对象。如果你需要使用当前线程的RunLoop，你需要使用类方法 currentRunLoop。应当注意到，从RunLoop角度来看的话，NS">
+<meta name="keywords" content="iOS,RunLoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发者文档译读-RunLoop">
+<meta property="og:url" content="http://yoursite.com/2019/04/08/iOS开发者文档译读-RunLoop/index.html">
 <meta property="og:site_name" content="Vegetable Tiger">
+<meta property="og:description" content="RunLoop 概览 一个RunLoop对象可以处理鼠标、键盘输入，端口对象输入，NSConnection对象输入。它也可以处理NSTimer事件。你的应用不用创建或很清晰地管理RunLoop对象。每个线程（包括应用主线程），都有一个自动创建好的RunLoop对象。如果你需要使用当前线程的RunLoop，你需要使用类方法 currentRunLoop。应当注意到，从RunLoop角度来看的话，NS">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-08T06:34:59.477Z">
+<meta property="og:updated_time" content="2019-04-08T09:52:46.261Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="iOS开发者文档译读-RunLoop">
+<meta name="twitter:description" content="RunLoop 概览 一个RunLoop对象可以处理鼠标、键盘输入，端口对象输入，NSConnection对象输入。它也可以处理NSTimer事件。你的应用不用创建或很清晰地管理RunLoop对象。每个线程（包括应用主线程），都有一个自动创建好的RunLoop对象。如果你需要使用当前线程的RunLoop，你需要使用类方法 currentRunLoop。应当注意到，从RunLoop角度来看的话，NS">
 
 
 
@@ -109,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/categories/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/08/iOS开发者文档译读-RunLoop/">
 
 
 
@@ -119,7 +123,7 @@
   };
 </script>
 
-  <title>分类 | Vegetable Tiger</title>
+  <title>iOS开发者文档译读-RunLoop | Vegetable Tiger</title>
   
 
 
@@ -243,7 +247,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -299,28 +303,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -347,62 +329,240 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/08/iOS开发者文档译读-RunLoop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yueyang Gu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vegetable Tiger">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">分类
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
+          <h1 class="post-title" itemprop="name headline">iOS开发者文档译读-RunLoop
+
               
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-              目前共计 2 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/隐私政策/">隐私政策</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-08 17:04:23 / 修改时间：17:52:46" itemprop="dateCreated datePublished" datetime="2019-04-08T17:04:23+08:00">2019-04-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="RunLoop"><a href="#RunLoop" class="headerlink" title="RunLoop"></a><a href="https://developer.apple.com/documentation/foundation/nsrunloop?language=objc" target="_blank" rel="noopener">RunLoop</a></h1><hr>
+<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><blockquote>
+<p>一个RunLoop对象可以处理鼠标、键盘输入，端口对象输入，NSConnection对象输入。它也可以处理NSTimer事件。<br>你的应用不用创建或很清晰地管理RunLoop对象。每个线程（包括应用主线程），都有一个自动创建好的RunLoop对象。如果你需要使用当前线程的RunLoop，你需要使用类方法 currentRunLoop。<br>应当注意到，从RunLoop角度来看的话，NSTimer对象并不是一个“输入”，它们是一个特殊的类型。这意味着当NSTimer启动时，不会引起RunLoop。</p>
+<blockquote>
+<p>警告：<br>RunLoop类一般不认为是线程安全的，它的方法应当只被当前线程的上下文调用。你应该永远不要尝试调用其他线程中的RunLoop的方法，因为这样可能导致无法预料的结果。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h2 id="话题"><a href="#话题" class="headerlink" title="话题"></a>话题</h2><h3 id="获取RunLoop和Mode"><a href="#获取RunLoop和Mode" class="headerlink" title="获取RunLoop和Mode"></a>获取RunLoop和Mode</h3><p><strong>currentRunLoop</strong></p>
+<blockquote>
+<p>返回当前线程的run loop</p>
+</blockquote>
+<p><strong>currentMode</strong></p>
+<blockquote>
+<p>接受者当前的input mode</p>
+</blockquote>
+<p><strong>- limitDateForMode:</strong></p>
+<blockquote>
+<p>获取下一个响应时间</p>
+</blockquote>
+<p><strong>mainRunLoop</strong></p>
+<blockquote>
+<p>返回主线程的RunLoop</p>
+</blockquote>
+<p><strong>- getCFRunLoop</strong></p>
+<blockquote>
+<p>返回接受者的下属的CFRunLoop对象</p>
+</blockquote>
+<p><strong>NSRunLoopMode</strong></p>
+<blockquote>
+<blockquote>
+<p>NSRunLoopCommonModes：被添加到这个模式下RunLoop的对象，会被所有mode处在common modes声明中的RunLoop监视。</p>
+</blockquote>
+<blockquote>
+<p>NSDefaultRunLoopMode：这个模式是用来处理除了NSConnection对象之外的输入源。</p>
+</blockquote>
+<blockquote>
+<p>NSEventTrackingRunLoopMode：这个模式适用用以下情况：鼠标拖拽循环。</p>
+</blockquote>
+<blockquote>
+<p>NSModalPanelRunLoopMode：当等待从遮罩层的输入，例如NSSavePanel、NSOpenPanel，一个RunLoop应当被设定为这个mode。</p>
+</blockquote>
+<blockquote>
+<p>UITrackingRunLoopMode：拖拽时设置为这个mode，你可以用这个模式来添加timer，这样拖拽时timer会继续触发。</p>
+</blockquote>
+</blockquote>
+<h3 id="管理Timers"><a href="#管理Timers" class="headerlink" title="管理Timers"></a>管理Timers</h3><p><strong>- addTimer:  forMode:</strong></p>
+<blockquote>
+<p>适用指定的input mode，注册一个给定的timer</p>
+</blockquote>
+<h3 id="管理端口"><a href="#管理端口" class="headerlink" title="管理端口"></a>管理端口</h3><p><strong>- addPort:  forMode:</strong></p>
+<blockquote>
+<p>添加一个port，作为输入源，添加到指定的mode中</p>
+</blockquote>
+<p><strong>- removePort:  forMode:</strong></p>
+<blockquote>
+<p>移除一个port，从指定的mode中</p>
+</blockquote>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+            <a href="/tags/RunLoop/" rel="tag"># RunLoop</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/08/iOS开发者文档译读-Dispatch/" rel="next" title="iOS开发者文档译读--Dispatch">
+                <i class="fa fa-chevron-left"></i> iOS开发者文档译读--Dispatch
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -431,8 +591,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -546,6 +715,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RunLoop"><span class="nav-number">1.</span> <span class="nav-text">RunLoop</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-number">1.1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#话题"><span class="nav-number">1.2.</span> <span class="nav-text">话题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取RunLoop和Mode"><span class="nav-number">1.2.1.</span> <span class="nav-text">获取RunLoop和Mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理Timers"><span class="nav-number">1.2.2.</span> <span class="nav-text">管理Timers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理端口"><span class="nav-number">1.2.3.</span> <span class="nav-text">管理端口</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
