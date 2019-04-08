@@ -384,7 +384,7 @@
                 
               
 
-              <time title="创建时间：2019-04-08 17:04:23 / 修改时间：17:52:46" itemprop="dateCreated datePublished" datetime="2019-04-08T17:04:23+08:00">2019-04-08</time>
+              <time title="创建时间：2019-04-08 17:04:23 / 修改时间：17:53:50" itemprop="dateCreated datePublished" datetime="2019-04-08T17:04:23+08:00">2019-04-08</time>
             
 
             
@@ -442,67 +442,22 @@
 
       
         
-          
-            <h1 id="RunLoop"><a href="#RunLoop" class="headerlink" title="RunLoop"></a><a href="https://developer.apple.com/documentation/foundation/nsrunloop?language=objc" target="_blank" rel="noopener">RunLoop</a></h1><hr>
+          <h1 id="RunLoop"><a href="#RunLoop" class="headerlink" title="RunLoop"></a><a href="https://developer.apple.com/documentation/foundation/nsrunloop?language=objc" target="_blank" rel="noopener">RunLoop</a></h1><hr>
 <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><blockquote>
 <p>一个RunLoop对象可以处理鼠标、键盘输入，端口对象输入，NSConnection对象输入。它也可以处理NSTimer事件。<br>你的应用不用创建或很清晰地管理RunLoop对象。每个线程（包括应用主线程），都有一个自动创建好的RunLoop对象。如果你需要使用当前线程的RunLoop，你需要使用类方法 currentRunLoop。<br>应当注意到，从RunLoop角度来看的话，NSTimer对象并不是一个“输入”，它们是一个特殊的类型。这意味着当NSTimer启动时，不会引起RunLoop。</p>
 <blockquote>
 <p>警告：<br>RunLoop类一般不认为是线程安全的，它的方法应当只被当前线程的上下文调用。你应该永远不要尝试调用其他线程中的RunLoop的方法，因为这样可能导致无法预料的结果。</p>
 </blockquote>
 </blockquote>
-<hr>
-<h2 id="话题"><a href="#话题" class="headerlink" title="话题"></a>话题</h2><h3 id="获取RunLoop和Mode"><a href="#获取RunLoop和Mode" class="headerlink" title="获取RunLoop和Mode"></a>获取RunLoop和Mode</h3><p><strong>currentRunLoop</strong></p>
-<blockquote>
-<p>返回当前线程的run loop</p>
-</blockquote>
-<p><strong>currentMode</strong></p>
-<blockquote>
-<p>接受者当前的input mode</p>
-</blockquote>
-<p><strong>- limitDateForMode:</strong></p>
-<blockquote>
-<p>获取下一个响应时间</p>
-</blockquote>
-<p><strong>mainRunLoop</strong></p>
-<blockquote>
-<p>返回主线程的RunLoop</p>
-</blockquote>
-<p><strong>- getCFRunLoop</strong></p>
-<blockquote>
-<p>返回接受者的下属的CFRunLoop对象</p>
-</blockquote>
-<p><strong>NSRunLoopMode</strong></p>
-<blockquote>
-<blockquote>
-<p>NSRunLoopCommonModes：被添加到这个模式下RunLoop的对象，会被所有mode处在common modes声明中的RunLoop监视。</p>
-</blockquote>
-<blockquote>
-<p>NSDefaultRunLoopMode：这个模式是用来处理除了NSConnection对象之外的输入源。</p>
-</blockquote>
-<blockquote>
-<p>NSEventTrackingRunLoopMode：这个模式适用用以下情况：鼠标拖拽循环。</p>
-</blockquote>
-<blockquote>
-<p>NSModalPanelRunLoopMode：当等待从遮罩层的输入，例如NSSavePanel、NSOpenPanel，一个RunLoop应当被设定为这个mode。</p>
-</blockquote>
-<blockquote>
-<p>UITrackingRunLoopMode：拖拽时设置为这个mode，你可以用这个模式来添加timer，这样拖拽时timer会继续触发。</p>
-</blockquote>
-</blockquote>
-<h3 id="管理Timers"><a href="#管理Timers" class="headerlink" title="管理Timers"></a>管理Timers</h3><p><strong>- addTimer:  forMode:</strong></p>
-<blockquote>
-<p>适用指定的input mode，注册一个给定的timer</p>
-</blockquote>
-<h3 id="管理端口"><a href="#管理端口" class="headerlink" title="管理端口"></a>管理端口</h3><p><strong>- addPort:  forMode:</strong></p>
-<blockquote>
-<p>添加一个port，作为输入源，添加到指定的mode中</p>
-</blockquote>
-<p><strong>- removePort:  forMode:</strong></p>
-<blockquote>
-<p>移除一个port，从指定的mode中</p>
-</blockquote>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/08/iOS开发者文档译读-RunLoop/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
