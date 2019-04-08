@@ -97,12 +97,12 @@
 
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
+<meta property="og:title" content="Vegetable Tiger">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Blog">
+<meta property="og:site_name" content="Vegetable Tiger">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
+<meta name="twitter:title" content="Vegetable Tiger">
 
 
 
@@ -120,7 +120,7 @@
   };
 </script>
 
-  <title>Blog</title>
+  <title>Vegetable Tiger</title>
   
 
 
@@ -180,7 +180,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Blog</span>
+        <span class="site-title">Vegetable Tiger</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -299,7 +299,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
+      <meta itemprop="name" content="Vegetable Tiger">
     </span>
 
     
@@ -335,7 +335,7 @@
                 
               
 
-              <time title="创建时间：2019-04-08 13:39:58 / 修改时间：13:54:49" itemprop="dateCreated datePublished" datetime="2019-04-08T13:39:58+08:00">2019-04-08</time>
+              <time title="创建时间：2019-04-08 13:39:58 / 修改时间：14:11:08" itemprop="dateCreated datePublished" datetime="2019-04-08T13:39:58+08:00">2019-04-08</time>
             
 
             
@@ -345,6 +345,24 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -375,96 +393,19 @@
 
       
         
-          
-            <h1 id="Dispatch"><a href="#Dispatch" class="headerlink" title="Dispatch"></a><a href="https://developer.apple.com/documentation/dispatch?language=objc" target="_blank" rel="noopener">Dispatch</a></h1><hr>
+          <h1 id="Dispatch"><a href="#Dispatch" class="headerlink" title="Dispatch"></a><a href="https://developer.apple.com/documentation/dispatch?language=objc" target="_blank" rel="noopener">Dispatch</a></h1><hr>
 <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><blockquote>
 <p>GCD （大中枢调度）由语言特征、runtime库、系统优化组成，来支持多核设备并发编程。<br>BSD子系统、Core Foundation、Cocoa的接口都被扩展来使用这些优化，以此帮助应用运行地更快，更有效，并且提高反应速度。<br>考虑到多核编程在不同环境中复杂性，GCD能够在系统层提供支持，为运行中的应用匹配合适的资源。</p>
 </blockquote>
-<h2 id="Dispatch对象与ARC"><a href="#Dispatch对象与ARC" class="headerlink" title="Dispatch对象与ARC"></a>Dispatch对象与ARC</h2><blockquote>
-<p>所有dispatch对象都是OC对象。在ARC开启时，dispatch对象将会像OC对象一样被自动retain和release。当ARC关闭时，编程者可以使用dispatch_retain和dispatch_release来retain、release。（不可以使用一般的retain、release）</p>
-</blockquote>
-<h2 id="管理Dispatch队列"><a href="#管理Dispatch队列" class="headerlink" title="管理Dispatch队列"></a>管理Dispatch队列</h2><blockquote>
-<p>GCD提供并管理一群FIFO队列，你可以往这些队列里提交block形式的对象。这些被提交的任务将被放在一个完全由系统管理的线程池里执行。你没法保证你提交的某个任务在哪个线程上执行（因为全交由系统来管理）。</p>
-</blockquote>
-<p><strong>Dispatch队列的类型</strong></p>
-<blockquote>
-<p>DISPATCH_QUEUE_SERIAL （串行队列）<br>DISPATCH_QUEUE_CONCURRENT （并行队列）</p>
-</blockquote>
-<p><strong>Dispatch队列标识常量</strong></p>
-<blockquote>
-<p>DISPATCH_CURRENT_QUEUE_LABEL （当前队列标识）<br>传递这个常量给 dispatch_queue_get_label 方法来取回当前队列的标识</p>
-</blockquote>
-<p><strong>dispatch_queue_t</strong></p>
-<blockquote>
-<p>对你的应用提交的接下来要执行的blocks来说，一个dispatch队列是一个轻量级的对象<br>一个dispatch队列以FIFO的顺序唤起串行提交给它的blocks。一个串行队列同一时间只唤起一个block，但是不同的队列可能会同时唤起各自的blocks。<br>全局并行队列以FIFO的顺序唤起blocks，但是不会等待它们的完成，这样就允许了多个blocks同时被唤起（宏观上）。<br>系统管理着一个进行着众多dispatch队列的线程池，并且唤起提交给这些队列的blocks。理论上，一个dispatch队列可能有它自己的执行线程，队列间的交流是高度异步的。<br>dispatch队列的引用计数由dispatch_retain和dispatch_release来影响。待执行的blocks被提交到队列中后，<strong>将持有一份对所处队列的引用</strong>，知道自身执行完毕才释放这个引用。一旦所有对队列的引用被释放，队列将由系统自动释放。</p>
-</blockquote>
-<p><strong>dispatch_get_main_queue</strong></p>
-<blockquote>
-<p>返回与你的应用相关联的串行dispatch队列</p>
-</blockquote>
-<p><strong>dispatch_get_global_queue</strong> (long idetifier, unsigned long flags)</p>
-<blockquote>
-<p>返回一个由系统定义的全局队列<br>idetifier：你想给这个队列中所执行任务的优先等级 <a href="https://developer.apple.com/documentation/dispatch/dispatch_queue_priorities?language=objc" target="_blank" rel="noopener">Dispatch Queue Priorities</a><br>flags：保留来实现未来的特性，使用0就行</p>
-</blockquote>
-<p><strong>dispatch_set_target_queue</strong> (dispatch_object_t  object,  dispatch_queue_t  queue)</p>
-<blockquote>
-<p>object：要修改的对象，不能为NULL<br>queue：object的新目标队列。这个队列将被retain，前一个队列（如果有），将被释放，这个参数不能为NULL<br>这个可以创建队列的层次体系，将一些队列的target指向一个串行队列，那么这些队列将以target所指的串行队列为参照</p>
-</blockquote>
-<p><strong>dispatch_async</strong> (dispatch_queue_t  queue,  dispatch_block_t  block)</p>
-<blockquote>
-<p>queue：这是你想提交block的队列，这个队列将被系统持有，并在block结束时释放持有。不能为NULL<br>block：提交给目标队列的block<br>这是个提交blocks给一个dispatch队列的基本机制。<strong>调用这个方法总是在block被提交后立即返回</strong>，而不去等待block被激发。目标dispatch队列决定了block是被串行还是并行触发（同时参考队列中的其他block来决定顺序）。各自独立的串行队列是并行运作的。</p>
-</blockquote>
-<p><strong>dispatch_async_f</strong>  (dispatch_queue_t  queue,  void*  context,  dispatch_function_t  work)</p>
-<blockquote>
-<p>queue：这是你想提交function的队列，这个队列被系统持有，直到function执行完毕。不能为NULL<br>context：上下文参数？<br>work：需要被队列触发的，由应用定义的function。第一个被传给这个function的参数是context参数的值。不能为空</p>
-</blockquote>
-<p><strong>dispatch_sync_f</strong>  (dispatch_queue_t  queue,  void*  context,  dispatch_function_t  work)</p>
-<blockquote>
-<p>同dispatch_async_f</p>
-</blockquote>
-<p><strong>dispatch_after</strong>  (dispatch_time_t  when,  dispatch_queue_t  queue,  dispatch_block_t  block)</p>
-<blockquote>
-<p>when：由dispatch_time或dispatch_walltime返回的暂时性里程碑<br>queue：提交block所至队列<br>block：需要提交的block<br>这个方法将等待到指定的时间，然后异步地增加block到指定的队列</p>
-</blockquote>
-<p><strong>dispatch_after_f</strong>  (dispatch_time_t  when,  dispatch_queue_t  queue,  void* context,  dispatch_function_t  work)</p>
-<blockquote>
-<p>结合dispatch_async_f与dispatch_after来理解</p>
-</blockquote>
-<p><strong>dispatch_apply_f</strong>  (size_t  iterations,  dispatch_queue_t  queue,  void <em> context,  void  (</em>work)(void *,  size_t))</p>
-<blockquote>
-<p>iterations：迭代次数<br>queue：目标队列<br>context：传递给work的上下文参数<br>work：传递给它的第一个参数是上下文参数，第二个参数是当前迭代的次数<br>多次触发work，并等待所有的触发返回。如果目标是dispatch_get_global_queue返回的并发队列，这个work将会被并行触发，所以这个work应该是<strong>可重入</strong>(执行过程可能被其他重复打断，所以应该只与自己的局部变量交流)。配合并行队列使用这个函数将提供高效的<strong>并行循环</strong>。</p>
-</blockquote>
-<p><strong>dispatch_queue_get_label</strong>  (dispatch_queue_t  queue)</p>
-<blockquote>
-<p>queue：想要获取l标识的队列，传递DISPATCH_CURRENT_QUEUE_LABEL将返回f当前队列的标识<br>返回值：队列的标识，如果队列在创建时没有标识则返回NULL</p>
-</blockquote>
-<p><strong>dispatch_get_specific</strong>  (const void * key)</p>
-<blockquote>
-<p>key：参照dispatch_queue_set_specific<br>这个方法希望被dispatch队列中的block调用。你可以使用它来获得与队列有关的context数据。在非dispatch队列中的代码里调用这个方法将返回NULL，因为没有队列来提供context</p>
-</blockquote>
-<p><strong>dispatch_queue_set_specific</strong>  (dispatch_queue_t  queue,  const void <em> key,  void </em> context,  dispatch_function_t  destructor)</p>
-<blockquote>
-<p>queue：需要设置指定key/value的队列<br>key：用来区分context数据的key，不建议使用string常量<br>context：与key关联的context数据，可以为NULL<br>destructor：这是个函数，可以用来释放你的context数据。可以为空，如果context为空，这个函数会被忽略。</p>
-</blockquote>
-<p><strong>dispatch_queue_get_specific</strong>  (dispatch_queue_t  queue,  const void * key)</p>
-<blockquote>
-<p>获取queue中与key相关联的context数据</p>
-</blockquote>
-<p><strong>dispatch_once_t</strong></p>
-<blockquote>
-<p>必须是全局或静态区的变量</p>
-</blockquote>
-<p><strong>dispatch_once</strong>  (dispatch_once_t * predicate,  dispatch_block_t  block)</p>
-<blockquote>
-<p>predicate：指向 dispatch_once_t 结构的指针，被用来测试block是否已经完成（保证block只执行一次）<br>block：只需要执行一次的block<br>这个函数被用来初始化全局数据（单例），请在使用或检测任何被block初始化的变量时，总是先调用这个函数<br>如果同时被多个线程调用，这个函数会同步等待直到block被完成<br>predicate必须是一个存储在全局或静态区域的变量。</p>
-</blockquote>
-<p><strong>dispatch_once_f</strong>  (dispatch_once_t <em> predicate,  void </em> context,  dispatch_function_t  function)</p>
-<blockquote>
-<p>参考 dispatch_async_f 与 dispatch_once</p>
-</blockquote>
-<hr>
-<h2 id="管理任务单元"><a href="#管理任务单元" class="headerlink" title="管理任务单元"></a>管理任务单元</h2>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/08/iOS开发者文档译读-Dispatch/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -528,7 +469,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
+      <meta itemprop="name" content="Vegetable Tiger">
     </span>
 
     
@@ -564,16 +505,46 @@
                 
               
 
-              <time title="创建时间：2019-04-07 19:50:03 / 修改时间：20:18:41" itemprop="dateCreated datePublished" datetime="2019-04-07T19:50:03+08:00">2019-04-07</time>
+              <time title="创建时间：2019-04-07 19:50:03" itemprop="dateCreated datePublished" datetime="2019-04-07T19:50:03+08:00">2019-04-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-08 14:11:33" itemprop="dateModified" datetime="2019-04-08T14:11:33+08:00">2019-04-08</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/隐私政策/" itemprop="url" rel="index"><span itemprop="name">隐私政策</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -604,9 +575,16 @@
 
       
         
+          <h2 id="详情请见-隐私政策"><a href="#详情请见-隐私政策" class="headerlink" title="详情请见 隐私政策"></a>详情请见 <a href="https://jjgyy.github.io/隐私政策/" target="_blank" rel="noopener">隐私政策</a></h2>
+          <!--noindex-->
           
-            <h2 id="详情请见-隐私政策"><a href="#详情请见-隐私政策" class="headerlink" title="详情请见 隐私政策"></a>详情请见 <a href="https://jjgyy.github.io/隐私政策/" target="_blank" rel="noopener">隐私政策</a></h2>
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/07/Yearning-Notes-隐私政策/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -695,11 +673,13 @@
               
 
               
-
-              
                 
                 
-                <div class="site-state-item site-state-tags">
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
                   
                     
                     
@@ -708,8 +688,31 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">标签</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
                   
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
                 </div>
               
             </nav>

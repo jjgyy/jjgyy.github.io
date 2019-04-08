@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Dispatch 概览 GCD （大中枢调度）由语言特征、runtime库、系统优化组成，来支持多核设备并发编程。BSD子系统、Core Foundation、Cocoa的接口都被扩展来使用这些优化，以此帮助应用运行地更快，更有效，并且提高反应速度。考虑到多核编程在不同环境中复杂性，GCD能够在系统层提供支持，为运行中的应用匹配合适的资源。  Dispatch对象与ARC 所有dispatch对象">
+  <meta name="description" content="Dispatch 概览 GCD （大中枢调度）由语言特征、runtime库、系统优化组成，来支持多核设备并发编程。BSD子系统、Core Foundation、Cocoa的接口都被扩展来使用这些优化，以此帮助应用运行地更快，更有效，并且提高反应速度。考虑到多核编程在不同环境中复杂性，GCD能够在系统层提供支持，为运行中的应用匹配合适的资源。">
 <meta name="keywords" content="iOS,Dispatch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发者文档译读--Dispatch">
 <meta property="og:url" content="http://yoursite.com/2019/04/08/iOS开发者文档译读-Dispatch/index.html">
-<meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Dispatch 概览 GCD （大中枢调度）由语言特征、runtime库、系统优化组成，来支持多核设备并发编程。BSD子系统、Core Foundation、Cocoa的接口都被扩展来使用这些优化，以此帮助应用运行地更快，更有效，并且提高反应速度。考虑到多核编程在不同环境中复杂性，GCD能够在系统层提供支持，为运行中的应用匹配合适的资源。  Dispatch对象与ARC 所有dispatch对象">
+<meta property="og:site_name" content="Vegetable Tiger">
+<meta property="og:description" content="Dispatch 概览 GCD （大中枢调度）由语言特征、runtime库、系统优化组成，来支持多核设备并发编程。BSD子系统、Core Foundation、Cocoa的接口都被扩展来使用这些优化，以此帮助应用运行地更快，更有效，并且提高反应速度。考虑到多核编程在不同环境中复杂性，GCD能够在系统层提供支持，为运行中的应用匹配合适的资源。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-08T05:54:49.239Z">
+<meta property="og:updated_time" content="2019-04-08T06:11:08.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发者文档译读--Dispatch">
-<meta name="twitter:description" content="Dispatch 概览 GCD （大中枢调度）由语言特征、runtime库、系统优化组成，来支持多核设备并发编程。BSD子系统、Core Foundation、Cocoa的接口都被扩展来使用这些优化，以此帮助应用运行地更快，更有效，并且提高反应速度。考虑到多核编程在不同环境中复杂性，GCD能够在系统层提供支持，为运行中的应用匹配合适的资源。  Dispatch对象与ARC 所有dispatch对象">
+<meta name="twitter:description" content="Dispatch 概览 GCD （大中枢调度）由语言特征、runtime库、系统优化组成，来支持多核设备并发编程。BSD子系统、Core Foundation、Cocoa的接口都被扩展来使用这些优化，以此帮助应用运行地更快，更有效，并且提高反应速度。考虑到多核编程在不同环境中复杂性，GCD能够在系统层提供支持，为运行中的应用匹配合适的资源。">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>iOS开发者文档译读--Dispatch | Blog</title>
+  <title>iOS开发者文档译读--Dispatch | Vegetable Tiger</title>
   
 
 
@@ -184,7 +184,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Blog</span>
+        <span class="site-title">Vegetable Tiger</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -303,7 +303,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
+      <meta itemprop="name" content="Vegetable Tiger">
     </span>
 
     
@@ -337,7 +337,7 @@
                 
               
 
-              <time title="创建时间：2019-04-08 13:39:58 / 修改时间：13:54:49" itemprop="dateCreated datePublished" datetime="2019-04-08T13:39:58+08:00">2019-04-08</time>
+              <time title="创建时间：2019-04-08 13:39:58 / 修改时间：14:11:08" itemprop="dateCreated datePublished" datetime="2019-04-08T13:39:58+08:00">2019-04-08</time>
             
 
             
@@ -347,6 +347,24 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -380,9 +398,12 @@
 <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><blockquote>
 <p>GCD （大中枢调度）由语言特征、runtime库、系统优化组成，来支持多核设备并发编程。<br>BSD子系统、Core Foundation、Cocoa的接口都被扩展来使用这些优化，以此帮助应用运行地更快，更有效，并且提高反应速度。<br>考虑到多核编程在不同环境中复杂性，GCD能够在系统层提供支持，为运行中的应用匹配合适的资源。</p>
 </blockquote>
+<a id="more"></a>
+<hr>
 <h2 id="Dispatch对象与ARC"><a href="#Dispatch对象与ARC" class="headerlink" title="Dispatch对象与ARC"></a>Dispatch对象与ARC</h2><blockquote>
 <p>所有dispatch对象都是OC对象。在ARC开启时，dispatch对象将会像OC对象一样被自动retain和release。当ARC关闭时，编程者可以使用dispatch_retain和dispatch_release来retain、release。（不可以使用一般的retain、release）</p>
 </blockquote>
+<hr>
 <h2 id="管理Dispatch队列"><a href="#管理Dispatch队列" class="headerlink" title="管理Dispatch队列"></a>管理Dispatch队列</h2><blockquote>
 <p>GCD提供并管理一群FIFO队列，你可以往这些队列里提交block形式的对象。这些被提交的任务将被放在一个完全由系统管理的线程池里执行。你没法保证你提交的某个任务在哪个线程上执行（因为全交由系统来管理）。</p>
 </blockquote>
@@ -585,11 +606,13 @@
               
 
               
-
-              
                 
                 
-                <div class="site-state-item site-state-tags">
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
                   
                     
                     
@@ -598,8 +621,31 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">标签</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
                   
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
                 </div>
               
             </nav>
