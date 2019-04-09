@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="Dispatch 概览 GCD （大中枢调度）由语言特征、runtime库、系统优化组成，来支持多核设备并发编程。BSD子系统、Core Foundation、Cocoa的接口都被扩展来使用这些优化，以此帮助应用运行地更快，更有效，并且提高反应速度。考虑到多核编程在不同环境中复杂性，GCD能够在系统层提供支持，为运行中的应用匹配合适的资源。">
-<meta name="keywords" content="iOS,Dispatch">
+  <meta name="description" content="RunLoop 概览 一个RunLoop对象可以处理鼠标、键盘输入，端口对象输入，NSConnection对象输入。它也可以处理NSTimer事件。你的应用不用创建或很清晰地管理RunLoop对象。每个线程（包括应用主线程），都有一个自动创建好的RunLoop对象。如果你需要使用当前线程的RunLoop，你需要使用类方法 currentRunLoop。应当注意到，从RunLoop角度来看的话，NS">
+<meta name="keywords" content="iOS,RunLoop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发者文档译读--Dispatch">
-<meta property="og:url" content="http://yoursite.com/2019/04/08/iOS开发者文档译读-Dispatch/index.html">
+<meta property="og:title" content="iOS开发者文档译读--RunLoop">
+<meta property="og:url" content="http://yoursite.com/2019/04/08/iOS开发者文档译读--RunLoop/index.html">
 <meta property="og:site_name" content="Yueyang Gu">
-<meta property="og:description" content="Dispatch 概览 GCD （大中枢调度）由语言特征、runtime库、系统优化组成，来支持多核设备并发编程。BSD子系统、Core Foundation、Cocoa的接口都被扩展来使用这些优化，以此帮助应用运行地更快，更有效，并且提高反应速度。考虑到多核编程在不同环境中复杂性，GCD能够在系统层提供支持，为运行中的应用匹配合适的资源。">
+<meta property="og:description" content="RunLoop 概览 一个RunLoop对象可以处理鼠标、键盘输入，端口对象输入，NSConnection对象输入。它也可以处理NSTimer事件。你的应用不用创建或很清晰地管理RunLoop对象。每个线程（包括应用主线程），都有一个自动创建好的RunLoop对象。如果你需要使用当前线程的RunLoop，你需要使用类方法 currentRunLoop。应当注意到，从RunLoop角度来看的话，NS">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-08T06:11:08.802Z">
+<meta property="og:updated_time" content="2019-04-09T03:54:39.692Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发者文档译读--Dispatch">
-<meta name="twitter:description" content="Dispatch 概览 GCD （大中枢调度）由语言特征、runtime库、系统优化组成，来支持多核设备并发编程。BSD子系统、Core Foundation、Cocoa的接口都被扩展来使用这些优化，以此帮助应用运行地更快，更有效，并且提高反应速度。考虑到多核编程在不同环境中复杂性，GCD能够在系统层提供支持，为运行中的应用匹配合适的资源。">
+<meta name="twitter:title" content="iOS开发者文档译读--RunLoop">
+<meta name="twitter:description" content="RunLoop 概览 一个RunLoop对象可以处理鼠标、键盘输入，端口对象输入，NSConnection对象输入。它也可以处理NSTimer事件。你的应用不用创建或很清晰地管理RunLoop对象。每个线程（包括应用主线程），都有一个自动创建好的RunLoop对象。如果你需要使用当前线程的RunLoop，你需要使用类方法 currentRunLoop。应当注意到，从RunLoop角度来看的话，NS">
 
 
 
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/08/iOS开发者文档译读-Dispatch/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/08/iOS开发者文档译读--RunLoop/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>iOS开发者文档译读--Dispatch | Yueyang Gu</title>
+  <title>iOS开发者文档译读--RunLoop | Yueyang Gu</title>
   
 
 
@@ -339,7 +339,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/08/iOS开发者文档译读-Dispatch/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/08/iOS开发者文档译读--RunLoop/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yueyang Gu">
@@ -356,7 +356,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS开发者文档译读--Dispatch
+          <h1 class="post-title" itemprop="name headline">iOS开发者文档译读--RunLoop
 
               
             
@@ -382,12 +382,24 @@
                 
               
 
-              <time title="创建时间：2019-04-08 13:39:58 / 修改时间：14:11:08" itemprop="dateCreated datePublished" datetime="2019-04-08T13:39:58+08:00">2019-04-08</time>
+              <time title="创建时间：2019-04-08 17:04:23" itemprop="dateCreated datePublished" datetime="2019-04-08T17:04:23+08:00">2019-04-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-09 11:54:39" itemprop="dateModified" datetime="2019-04-09T11:54:39+08:00">2019-04-09</time>
               
             
           </span>
@@ -439,97 +451,96 @@
       
 
       
-        <h1 id="Dispatch"><a href="#Dispatch" class="headerlink" title="Dispatch"></a><a href="https://developer.apple.com/documentation/dispatch?language=objc" target="_blank" rel="noopener">Dispatch</a></h1><hr>
+        <h1 id="RunLoop"><a href="#RunLoop" class="headerlink" title="RunLoop"></a><a href="https://developer.apple.com/documentation/foundation/nsrunloop?language=objc" target="_blank" rel="noopener">RunLoop</a></h1><hr>
 <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><blockquote>
-<p>GCD （大中枢调度）由语言特征、runtime库、系统优化组成，来支持多核设备并发编程。<br>BSD子系统、Core Foundation、Cocoa的接口都被扩展来使用这些优化，以此帮助应用运行地更快，更有效，并且提高反应速度。<br>考虑到多核编程在不同环境中复杂性，GCD能够在系统层提供支持，为运行中的应用匹配合适的资源。</p>
+<p>一个RunLoop对象可以处理鼠标、键盘输入，端口对象输入，NSConnection对象输入。它也可以处理NSTimer事件。<br>你的应用不用创建或很清晰地管理RunLoop对象。每个线程（包括应用主线程），都有一个自动创建好的RunLoop对象。如果你需要使用当前线程的RunLoop，你需要使用类方法 currentRunLoop。<br>应当注意到，从RunLoop角度来看的话，NSTimer对象并不是一个“输入”，它们是一个特殊的类型。这意味着当NSTimer启动时，不会引起RunLoop。</p>
+<blockquote>
+<p>警告：<br>RunLoop类一般不认为是线程安全的，它的方法应当只被当前线程的上下文调用。你应该永远不要尝试调用其他线程中的RunLoop的方法，因为这样可能导致无法预料的结果。</p>
+</blockquote>
 </blockquote>
 <a id="more"></a>
 <hr>
-<h2 id="Dispatch对象与ARC"><a href="#Dispatch对象与ARC" class="headerlink" title="Dispatch对象与ARC"></a>Dispatch对象与ARC</h2><blockquote>
-<p>所有dispatch对象都是OC对象。在ARC开启时，dispatch对象将会像OC对象一样被自动retain和release。当ARC关闭时，编程者可以使用dispatch_retain和dispatch_release来retain、release。（不可以使用一般的retain、release）</p>
-</blockquote>
-<hr>
-<h2 id="管理Dispatch队列"><a href="#管理Dispatch队列" class="headerlink" title="管理Dispatch队列"></a>管理Dispatch队列</h2><blockquote>
-<p>GCD提供并管理一群FIFO队列，你可以往这些队列里提交block形式的对象。这些被提交的任务将被放在一个完全由系统管理的线程池里执行。你没法保证你提交的某个任务在哪个线程上执行（因为全交由系统来管理）。</p>
-</blockquote>
-<p><strong>Dispatch队列的类型</strong></p>
+<h2 id="话题"><a href="#话题" class="headerlink" title="话题"></a>话题</h2><h3 id="获取RunLoop和Mode"><a href="#获取RunLoop和Mode" class="headerlink" title="获取RunLoop和Mode"></a>获取RunLoop和Mode</h3><p><strong>currentRunLoop</strong></p>
 <blockquote>
-<p>DISPATCH_QUEUE_SERIAL （串行队列）<br>DISPATCH_QUEUE_CONCURRENT （并行队列）</p>
+<p>返回当前线程的run loop</p>
 </blockquote>
-<p><strong>Dispatch队列标识常量</strong></p>
+<p><strong>currentMode</strong></p>
 <blockquote>
-<p>DISPATCH_CURRENT_QUEUE_LABEL （当前队列标识）<br>传递这个常量给 dispatch_queue_get_label 方法来取回当前队列的标识</p>
+<p>接受者当前的input mode</p>
 </blockquote>
-<p><strong>dispatch_queue_t</strong></p>
+<p><strong>- limitDateForMode:</strong></p>
 <blockquote>
-<p>对你的应用提交的接下来要执行的blocks来说，一个dispatch队列是一个轻量级的对象<br>一个dispatch队列以FIFO的顺序唤起串行提交给它的blocks。一个串行队列同一时间只唤起一个block，但是不同的队列可能会同时唤起各自的blocks。<br>全局并行队列以FIFO的顺序唤起blocks，但是不会等待它们的完成，这样就允许了多个blocks同时被唤起（宏观上）。<br>系统管理着一个进行着众多dispatch队列的线程池，并且唤起提交给这些队列的blocks。理论上，一个dispatch队列可能有它自己的执行线程，队列间的交流是高度异步的。<br>dispatch队列的引用计数由dispatch_retain和dispatch_release来影响。待执行的blocks被提交到队列中后，<strong>将持有一份对所处队列的引用</strong>，知道自身执行完毕才释放这个引用。一旦所有对队列的引用被释放，队列将由系统自动释放。</p>
+<p>获取下一个响应时间</p>
 </blockquote>
-<p><strong>dispatch_get_main_queue</strong></p>
+<p><strong>mainRunLoop</strong></p>
 <blockquote>
-<p>返回与你的应用相关联的串行dispatch队列</p>
+<p>返回主线程的RunLoop</p>
 </blockquote>
-<p><strong>dispatch_get_global_queue</strong> (long idetifier, unsigned long flags)</p>
+<p><strong>- getCFRunLoop</strong></p>
 <blockquote>
-<p>返回一个由系统定义的全局队列<br>idetifier：你想给这个队列中所执行任务的优先等级 <a href="https://developer.apple.com/documentation/dispatch/dispatch_queue_priorities?language=objc" target="_blank" rel="noopener">Dispatch Queue Priorities</a><br>flags：保留来实现未来的特性，使用0就行</p>
+<p>返回接受者的下属的CFRunLoop对象</p>
 </blockquote>
-<p><strong>dispatch_set_target_queue</strong> (dispatch_object_t  object,  dispatch_queue_t  queue)</p>
+<p><strong>NSRunLoopMode</strong></p>
 <blockquote>
-<p>object：要修改的对象，不能为NULL<br>queue：object的新目标队列。这个队列将被retain，前一个队列（如果有），将被释放，这个参数不能为NULL<br>这个可以创建队列的层次体系，将一些队列的target指向一个串行队列，那么这些队列将以target所指的串行队列为参照</p>
-</blockquote>
-<p><strong>dispatch_async</strong> (dispatch_queue_t  queue,  dispatch_block_t  block)</p>
 <blockquote>
-<p>queue：这是你想提交block的队列，这个队列将被系统持有，并在block结束时释放持有。不能为NULL<br>block：提交给目标队列的block<br>这是个提交blocks给一个dispatch队列的基本机制。<strong>调用这个方法总是在block被提交后立即返回</strong>，而不去等待block被激发。目标dispatch队列决定了block是被串行还是并行触发（同时参考队列中的其他block来决定顺序）。各自独立的串行队列是并行运作的。</p>
+<p>NSRunLoopCommonModes：被添加到这个模式下RunLoop的对象，会被所有mode处在common modes声明中的RunLoop监视。</p>
 </blockquote>
-<p><strong>dispatch_async_f</strong>  (dispatch_queue_t  queue,  void*  context,  dispatch_function_t  work)</p>
 <blockquote>
-<p>queue：这是你想提交function的队列，这个队列被系统持有，直到function执行完毕。不能为NULL<br>context：上下文参数？<br>work：需要被队列触发的，由应用定义的function。第一个被传给这个function的参数是context参数的值。不能为空</p>
+<p>NSDefaultRunLoopMode：这个模式是用来处理除了NSConnection对象之外的输入源。</p>
 </blockquote>
-<p><strong>dispatch_sync_f</strong>  (dispatch_queue_t  queue,  void*  context,  dispatch_function_t  work)</p>
 <blockquote>
-<p>同dispatch_async_f</p>
+<p>NSEventTrackingRunLoopMode：这个模式适用用以下情况：鼠标拖拽循环。</p>
 </blockquote>
-<p><strong>dispatch_after</strong>  (dispatch_time_t  when,  dispatch_queue_t  queue,  dispatch_block_t  block)</p>
 <blockquote>
-<p>when：由dispatch_time或dispatch_walltime返回的暂时性里程碑<br>queue：提交block所至队列<br>block：需要提交的block<br>这个方法将等待到指定的时间，然后异步地增加block到指定的队列</p>
+<p>NSModalPanelRunLoopMode：当等待从遮罩层的输入，例如NSSavePanel、NSOpenPanel，一个RunLoop应当被设定为这个mode。</p>
 </blockquote>
-<p><strong>dispatch_after_f</strong>  (dispatch_time_t  when,  dispatch_queue_t  queue,  void* context,  dispatch_function_t  work)</p>
 <blockquote>
-<p>结合dispatch_async_f与dispatch_after来理解</p>
+<p>UITrackingRunLoopMode：拖拽时设置为这个mode，你可以用这个模式来添加timer，这样拖拽时timer会继续触发。</p>
 </blockquote>
-<p><strong>dispatch_apply_f</strong>  (size_t  iterations,  dispatch_queue_t  queue,  void <em> context,  void  (</em>work)(void *,  size_t))</p>
+</blockquote>
+<h3 id="管理Timers"><a href="#管理Timers" class="headerlink" title="管理Timers"></a>管理Timers</h3><p><strong>- addTimer:  forMode:</strong></p>
 <blockquote>
-<p>iterations：迭代次数<br>queue：目标队列<br>context：传递给work的上下文参数<br>work：传递给它的第一个参数是上下文参数，第二个参数是当前迭代的次数<br>多次触发work，并等待所有的触发返回。如果目标是dispatch_get_global_queue返回的并发队列，这个work将会被并行触发，所以这个work应该是<strong>可重入</strong>(执行过程可能被其他重复打断，所以应该只与自己的局部变量交流)。配合并行队列使用这个函数将提供高效的<strong>并行循环</strong>。</p>
+<p>适用指定的input mode，注册一个给定的timer</p>
 </blockquote>
-<p><strong>dispatch_queue_get_label</strong>  (dispatch_queue_t  queue)</p>
+<h3 id="管理端口"><a href="#管理端口" class="headerlink" title="管理端口"></a>管理端口</h3><p><strong>- addPort:  forMode:</strong></p>
 <blockquote>
-<p>queue：想要获取l标识的队列，传递DISPATCH_CURRENT_QUEUE_LABEL将返回f当前队列的标识<br>返回值：队列的标识，如果队列在创建时没有标识则返回NULL</p>
+<p>添加一个port，作为输入源，添加到指定的mode中</p>
 </blockquote>
-<p><strong>dispatch_get_specific</strong>  (const void * key)</p>
+<p><strong>- removePort:  forMode:</strong></p>
 <blockquote>
-<p>key：参照dispatch_queue_set_specific<br>这个方法希望被dispatch队列中的block调用。你可以使用它来获得与队列有关的context数据。在非dispatch队列中的代码里调用这个方法将返回NULL，因为没有队列来提供context</p>
+<p>移除一个port，从指定的mode中</p>
 </blockquote>
-<p><strong>dispatch_queue_set_specific</strong>  (dispatch_queue_t  queue,  const void <em> key,  void </em> context,  dispatch_function_t  destructor)</p>
+<h3 id="运行一个循环"><a href="#运行一个循环" class="headerlink" title="运行一个循环"></a>运行一个循环</h3><p><strong>- run</strong></p>
 <blockquote>
-<p>queue：需要设置指定key/value的队列<br>key：用来区分context数据的key，不建议使用string常量<br>context：与key关联的context数据，可以为NULL<br>destructor：这是个函数，可以用来释放你的context数据。可以为空，如果context为空，这个函数会被忽略。</p>
+<p>把接收者放进一个死循环中，在这个循环中，接收者会处理来自与它相连的输入源所输入的一切数据</p>
 </blockquote>
-<p><strong>dispatch_queue_get_specific</strong>  (dispatch_queue_t  queue,  const void * key)</p>
+<p><strong>- runMode:  beforeDate:</strong></p>
 <blockquote>
-<p>获取queue中与key相关联的context数据</p>
+<p>启动run loop一次，在特定的mode下等待输入，直到给定的时间</p>
 </blockquote>
-<p><strong>dispatch_once_t</strong></p>
+<p><strong>- runUntilDate:</strong></p>
 <blockquote>
-<p>必须是全局或静态区的变量</p>
+<p>启动run loop直到给定的时间，在这期间它会处理相连数据源的数据</p>
 </blockquote>
-<p><strong>dispatch_once</strong>  (dispatch_once_t * predicate,  dispatch_block_t  block)</p>
+<p><strong>- acceptInputForMode:  beforeDate:</strong></p>
 <blockquote>
-<p>predicate：指向 dispatch_once_t 结构的指针，被用来测试block是否已经完成（保证block只执行一次）<br>block：只需要执行一次的block<br>这个函数被用来初始化全局数据（单例），请在使用或检测任何被block初始化的变量时，总是先调用这个函数<br>如果同时被多个线程调用，这个函数会同步等待直到block被完成<br>predicate必须是一个存储在全局或静态区域的变量。</p>
+<p>启动run loop一次，或者直到指定的时间，只接受给定mode的输入</p>
 </blockquote>
-<p><strong>dispatch_once_f</strong>  (dispatch_once_t <em> predicate,  void </em> context,  dispatch_function_t  function)</p>
+<h3 id="计划发送和取消发送消息"><a href="#计划发送和取消发送消息" class="headerlink" title="计划发送和取消发送消息"></a>计划发送和取消发送消息</h3><p><strong>- performSelector:  target:  argument:  order:  modes:</strong></p>
 <blockquote>
-<p>参考 dispatch_async_f 与 dispatch_once</p>
+<p>计划发送消息</p>
 </blockquote>
-<hr>
-<h2 id="管理任务单元"><a href="#管理任务单元" class="headerlink" title="管理任务单元"></a>管理任务单元</h2>
+<p><strong>- cancelPerformSelector:  target:  argument:</strong></p>
+<blockquote>
+<p>取消之前计划发送的消息</p>
+</blockquote>
+<p><strong>- cancelPerformSelectorsWithTarget:</strong></p>
+<blockquote>
+<p>取消指定目标的所有未响应的消息</p>
+</blockquote>
+<h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3><p><strong>- performBlock:</strong></p>
+<p><strong>- performInModes:  block:</strong></p>
+
       
     </div>
 
@@ -554,7 +565,7 @@
           
             <a href="/tags/iOS/" rel="tag"># iOS</a>
           
-            <a href="/tags/Dispatch/" rel="tag"># Dispatch</a>
+            <a href="/tags/RunLoop/" rel="tag"># RunLoop</a>
           
         </div>
       
@@ -567,8 +578,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/07/Yearning-Notes-隐私政策/" rel="next" title="Yearning Notes 隐私政策">
-                <i class="fa fa-chevron-left"></i> Yearning Notes 隐私政策
+              <a href="/2019/04/08/iOS开发者文档译读--Dispatch/" rel="next" title="iOS开发者文档译读--Dispatch">
+                <i class="fa fa-chevron-left"></i> iOS开发者文档译读--Dispatch
               </a>
             
           </div>
@@ -577,8 +588,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/08/iOS开发者文档译读-RunLoop/" rel="prev" title="iOS开发者文档译读-RunLoop">
-                iOS开发者文档译读-RunLoop <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/09/iOS开发者文档译读--NSTimer/" rel="prev" title="iOS开发者文档译读--NSTimer">
+                iOS开发者文档译读--NSTimer <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -760,7 +771,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dispatch"><span class="nav-number">1.</span> <span class="nav-text">Dispatch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-number">1.1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dispatch对象与ARC"><span class="nav-number">1.2.</span> <span class="nav-text">Dispatch对象与ARC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理Dispatch队列"><span class="nav-number">1.3.</span> <span class="nav-text">管理Dispatch队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理任务单元"><span class="nav-number">1.4.</span> <span class="nav-text">管理任务单元</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RunLoop"><span class="nav-number">1.</span> <span class="nav-text">RunLoop</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-number">1.1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#话题"><span class="nav-number">1.2.</span> <span class="nav-text">话题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取RunLoop和Mode"><span class="nav-number">1.2.1.</span> <span class="nav-text">获取RunLoop和Mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理Timers"><span class="nav-number">1.2.2.</span> <span class="nav-text">管理Timers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理端口"><span class="nav-number">1.2.3.</span> <span class="nav-text">管理端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行一个循环"><span class="nav-number">1.2.4.</span> <span class="nav-text">运行一个循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计划发送和取消发送消息"><span class="nav-number">1.2.5.</span> <span class="nav-text">计划发送和取消发送消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例方法"><span class="nav-number">1.2.6.</span> <span class="nav-text">实例方法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
