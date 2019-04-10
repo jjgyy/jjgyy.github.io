@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Yueyang Gu">
 <meta property="og:description" content="概览 REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Hash">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-10T03:37:29.423Z">
+<meta property="og:updated_time" content="2019-04-10T03:39:07.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis学习笔记">
 <meta name="twitter:description" content="概览 REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Hash">
@@ -382,7 +382,7 @@
                 
               
 
-              <time title="创建时间：2019-04-10 10:54:28 / 修改时间：11:37:29" itemprop="dateCreated datePublished" datetime="2019-04-10T10:54:28+08:00">2019-04-10</time>
+              <time title="创建时间：2019-04-10 10:54:28 / 修改时间：11:39:07" itemprop="dateCreated datePublished" datetime="2019-04-10T10:54:28+08:00">2019-04-10</time>
             
 
             
@@ -445,8 +445,9 @@
 <a id="more"></a>
 <hr>
 <h2 id="Linux下启动"><a href="#Linux下启动" class="headerlink" title="Linux下启动"></a>Linux下启动</h2><blockquote>
-<p>src目录下<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 默认配置启动</span><br><span class="line"><span class="meta">$</span> ./redis-server</span><br><span class="line"></span><br><span class="line">// 设置启动参数启动</span><br><span class="line"><span class="meta">$</span> ./redis-server ../redis.conf</span><br></pre></td></tr></table></figure></p>
+<p>src目录下</p>
 </blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 默认配置启动</span><br><span class="line"><span class="meta">$</span> ./redis-server</span><br><span class="line"></span><br><span class="line">// 设置启动参数启动</span><br><span class="line"><span class="meta">$</span> ./redis-server ../redis.conf</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 本地建立一个与服务的连接</span><br><span class="line"><span class="meta">$</span> ./redis-cli</span><br><span class="line"></span><br><span class="line">// 远程建立一个与服务的连接</span><br><span class="line"><span class="meta">$</span> ./redis-cli -h host -p port -a password</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="SET"><a href="#SET" class="headerlink" title="SET"></a>SET</h3><blockquote>
