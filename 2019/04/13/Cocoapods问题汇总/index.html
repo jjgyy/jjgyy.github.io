@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Yueyang Gu">
 <meta property="og:description" content="Cocoapods问题清单">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-13T07:35:23.306Z">
+<meta property="og:updated_time" content="2019-04-13T07:42:25.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cocoapods问题汇总">
 <meta name="twitter:description" content="Cocoapods问题清单">
@@ -382,7 +382,7 @@
                 
               
 
-              <time title="创建时间：2019-04-13 15:12:06 / 修改时间：15:35:23" itemprop="dateCreated datePublished" datetime="2019-04-13T15:12:06+08:00">2019-04-13</time>
+              <time title="创建时间：2019-04-13 15:12:06 / 修改时间：15:42:25" itemprop="dateCreated datePublished" datetime="2019-04-13T15:12:06+08:00">2019-04-13</time>
             
 
             
@@ -440,10 +440,14 @@
 
       
         <h2 id="Cocoapods问题清单"><a href="#Cocoapods问题清单" class="headerlink" title="Cocoapods问题清单"></a>Cocoapods问题清单</h2><a id="more"></a>
+<hr>
 <h3 id="sudo-gem-install-n-usr-local-bin-cocoapods-报错-“Unable-to-require-openssl-install-OpenSSL-and-rebuild-ruby-preferred-or-use-non-HTTPS-sources”"><a href="#sudo-gem-install-n-usr-local-bin-cocoapods-报错-“Unable-to-require-openssl-install-OpenSSL-and-rebuild-ruby-preferred-or-use-non-HTTPS-sources”" class="headerlink" title="sudo gem install -n /usr/local/bin cocoapods 报错 “Unable to require openssl, install OpenSSL and rebuild ruby (preferred) or use non-HTTPS sources”"></a>sudo gem install -n /usr/local/bin cocoapods 报错 “Unable to require openssl, install OpenSSL and rebuild ruby (preferred) or use non-HTTPS sources”</h3><blockquote>
 <p>将源从https换成http<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gem sources --remove https://gems.ruby-china.com/</span><br><span class="line"><span class="meta">$</span> gem source -a http://gems.ruby-china.com/</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h3 id="新版本MAC系统安装Cocoapods"><a href="#新版本MAC系统安装Cocoapods" class="headerlink" title="新版本MAC系统安装Cocoapods"></a>新版本MAC系统安装Cocoapods</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo gem install -n /usr/local/bin cocoapods --pre</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="新版本MAC系统安装Cocoapods"><a href="#新版本MAC系统安装Cocoapods" class="headerlink" title="新版本MAC系统安装Cocoapods"></a>新版本MAC系统安装Cocoapods</h3><blockquote>
+<p>不再使用sudo gem install cocoapods<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo gem install -n /usr/local/bin cocoapods --pre</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 
       
     </div>
