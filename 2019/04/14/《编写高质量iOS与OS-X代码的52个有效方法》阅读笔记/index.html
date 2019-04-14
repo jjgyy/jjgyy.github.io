@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Yueyang Gu">
 <meta property="og:description" content="《编写高质量iOS与OS X代码的52个有效方法》">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-14T09:05:24.688Z">
+<meta property="og:updated_time" content="2019-04-14T09:06:53.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《编写高质量iOS与OS X代码的52个有效方法》阅读笔记">
 <meta name="twitter:description" content="《编写高质量iOS与OS X代码的52个有效方法》">
@@ -382,7 +382,7 @@
                 
               
 
-              <time title="创建时间：2019-04-14 16:33:08 / 修改时间：17:05:24" itemprop="dateCreated datePublished" datetime="2019-04-14T16:33:08+08:00">2019-04-14</time>
+              <time title="创建时间：2019-04-14 16:33:08 / 修改时间：17:06:53" itemprop="dateCreated datePublished" datetime="2019-04-14T16:33:08+08:00">2019-04-14</time>
             
 
             
@@ -445,10 +445,10 @@
 <li><p>不要用预处理指令定义常量。这样定义出来的常量<strong>不含类型信息</strong>，编译器只是在编译前做替换操作。即使有人重新定义，编译器也不会产生警告。</p>
 </li>
 <li><p>在实现文件中使用<strong>static const</strong>来定义只在编译单元内可见的常量。由于此常量不在全局符号表中，所以无须为其名称加前缀。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 尽量少使用</span><br><span class="line">// #define ANIMATION_DURATION 0.3</span><br><span class="line"></span><br><span class="line">// 常量局限于implementation file之内，则在变量名前面加字母k</span><br><span class="line">static const NSTimeInterval kAnimationDuration = 0.3;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 尽量少使用</span></span><br><span class="line"><span class="comment">// #define ANIMATION_DURATION 0.3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 常量局限于implementation file之内，则在变量名前面加字母k</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> NSTimeInterval kAnimationDuration = <span class="number">0.3</span>;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在头文件中使用<strong>extern const</strong>来声明全局常量，并在相应实现文件中定义其值。这种常量要出现在全局符号表中，所以其名称应加一区隔，通常用与之相关的类名做前缀。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// EOCAnimatedView.h</span><br><span class="line">extern const NSTimeInterval EOCAnimatedViewAnimationDuration;</span><br><span class="line">extern NSString * const EOCLoginManagerDidLoginNotification;</span><br><span class="line"></span><br><span class="line">// EOCAnimatedView.m</span><br><span class="line">const NSTimeInterval EOCAnimatedViewAnimationDuration = 0.3;</span><br><span class="line">NSString * const EOCLoginManagerDidLoginNotification = @&quot;EOCLoginManagerDidLoginNotification&quot;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// EOCAnimatedView.h</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">const</span> NSTimeInterval EOCAnimatedViewAnimationDuration;</span><br><span class="line"><span class="keyword">extern</span> NSString * <span class="keyword">const</span> EOCLoginManagerDidLoginNotification;</span><br><span class="line"></span><br><span class="line"><span class="comment">// EOCAnimatedView.m</span></span><br><span class="line"><span class="keyword">const</span> NSTimeInterval EOCAnimatedViewAnimationDuration = <span class="number">0.3</span>;</span><br><span class="line">NSString * <span class="keyword">const</span> EOCLoginManagerDidLoginNotification = @<span class="string">"EOCLoginManagerDidLoginNotification"</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
