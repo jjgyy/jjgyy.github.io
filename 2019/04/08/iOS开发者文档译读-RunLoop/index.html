@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="详情请见 隐私政策">
-<meta name="keywords" content="隐私政策">
+  <meta name="description" content="RunLoop 概览 一个RunLoop对象可以处理鼠标、键盘输入，端口对象输入，NSConnection对象输入。它也可以处理NSTimer事件。你的应用不用创建或很清晰地管理RunLoop对象。每个线程（包括应用主线程），都有一个自动创建好的RunLoop对象。如果你需要使用当前线程的RunLoop，你需要使用类方法 currentRunLoop。应当注意到，从RunLoop角度来看的话，NS">
+<meta name="keywords" content="iOS,RunLoop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Yearning Notes 隐私政策">
-<meta property="og:url" content="http://yoursite.com/2019/04/07/Yearning-Notes-隐私政策/index.html">
+<meta property="og:title" content="iOS开发者文档译读-RunLoop">
+<meta property="og:url" content="http://yoursite.com/2019/04/08/iOS开发者文档译读-RunLoop/index.html">
 <meta property="og:site_name" content="Yueyang Gu">
-<meta property="og:description" content="详情请见 隐私政策">
+<meta property="og:description" content="RunLoop 概览 一个RunLoop对象可以处理鼠标、键盘输入，端口对象输入，NSConnection对象输入。它也可以处理NSTimer事件。你的应用不用创建或很清晰地管理RunLoop对象。每个线程（包括应用主线程），都有一个自动创建好的RunLoop对象。如果你需要使用当前线程的RunLoop，你需要使用类方法 currentRunLoop。应当注意到，从RunLoop角度来看的话，NS">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-08T06:11:33.470Z">
+<meta property="og:updated_time" content="2019-04-14T08:35:02.107Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yearning Notes 隐私政策">
-<meta name="twitter:description" content="详情请见 隐私政策">
+<meta name="twitter:title" content="iOS开发者文档译读-RunLoop">
+<meta name="twitter:description" content="RunLoop 概览 一个RunLoop对象可以处理鼠标、键盘输入，端口对象输入，NSConnection对象输入。它也可以处理NSTimer事件。你的应用不用创建或很清晰地管理RunLoop对象。每个线程（包括应用主线程），都有一个自动创建好的RunLoop对象。如果你需要使用当前线程的RunLoop，你需要使用类方法 currentRunLoop。应当注意到，从RunLoop角度来看的话，NS">
 
 
 
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/07/Yearning-Notes-隐私政策/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/08/iOS开发者文档译读-RunLoop/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>Yearning Notes 隐私政策 | Yueyang Gu</title>
+  <title>iOS开发者文档译读-RunLoop | Yueyang Gu</title>
   
 
 
@@ -339,7 +339,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/Yearning-Notes-隐私政策/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/08/iOS开发者文档译读-RunLoop/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yueyang Gu">
@@ -356,7 +356,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Yearning Notes 隐私政策
+          <h1 class="post-title" itemprop="name headline">iOS开发者文档译读-RunLoop
 
               
             
@@ -382,7 +382,7 @@
                 
               
 
-              <time title="创建时间：2019-04-07 19:50:03" itemprop="dateCreated datePublished" datetime="2019-04-07T19:50:03+08:00">2019-04-07</time>
+              <time title="创建时间：2019-04-08 17:04:23" itemprop="dateCreated datePublished" datetime="2019-04-08T17:04:23+08:00">2019-04-08</time>
             
 
             
@@ -399,7 +399,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-08 14:11:33" itemprop="dateModified" datetime="2019-04-08T14:11:33+08:00">2019-04-08</time>
+                <time title="修改时间：2019-04-14 16:35:02" itemprop="dateModified" datetime="2019-04-14T16:35:02+08:00">2019-04-14</time>
               
             
           </span>
@@ -416,7 +416,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/隐私政策/" itemprop="url" rel="index"><span itemprop="name">隐私政策</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
 
                 
                 
@@ -451,7 +451,95 @@
       
 
       
-        <h2 id="详情请见-隐私政策"><a href="#详情请见-隐私政策" class="headerlink" title="详情请见 隐私政策"></a>详情请见 <a href="https://jjgyy.github.io/隐私政策/" target="_blank" rel="noopener">隐私政策</a></h2><a id="more"></a>
+        <h1 id="RunLoop"><a href="#RunLoop" class="headerlink" title="RunLoop"></a><a href="https://developer.apple.com/documentation/foundation/nsrunloop?language=objc" target="_blank" rel="noopener">RunLoop</a></h1><hr>
+<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><blockquote>
+<p>一个RunLoop对象可以处理鼠标、键盘输入，端口对象输入，NSConnection对象输入。它也可以处理NSTimer事件。<br>你的应用不用创建或很清晰地管理RunLoop对象。每个线程（包括应用主线程），都有一个自动创建好的RunLoop对象。如果你需要使用当前线程的RunLoop，你需要使用类方法 currentRunLoop。<br>应当注意到，从RunLoop角度来看的话，NSTimer对象并不是一个“输入”，它们是一个特殊的类型。这意味着当NSTimer启动时，不会引起RunLoop。</p>
+<blockquote>
+<p>警告：<br>RunLoop类一般不认为是线程安全的，它的方法应当只被当前线程的上下文调用。你应该永远不要尝试调用其他线程中的RunLoop的方法，因为这样可能导致无法预料的结果。</p>
+</blockquote>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="话题"><a href="#话题" class="headerlink" title="话题"></a>话题</h2><h3 id="获取RunLoop和Mode"><a href="#获取RunLoop和Mode" class="headerlink" title="获取RunLoop和Mode"></a>获取RunLoop和Mode</h3><p><strong>currentRunLoop</strong></p>
+<blockquote>
+<p>返回当前线程的run loop</p>
+</blockquote>
+<p><strong>currentMode</strong></p>
+<blockquote>
+<p>接受者当前的input mode</p>
+</blockquote>
+<p><strong>- limitDateForMode:</strong></p>
+<blockquote>
+<p>获取下一个响应时间</p>
+</blockquote>
+<p><strong>mainRunLoop</strong></p>
+<blockquote>
+<p>返回主线程的RunLoop</p>
+</blockquote>
+<p><strong>- getCFRunLoop</strong></p>
+<blockquote>
+<p>返回接受者的下属的CFRunLoop对象</p>
+</blockquote>
+<p><strong>NSRunLoopMode</strong></p>
+<blockquote>
+<blockquote>
+<p>NSRunLoopCommonModes：被添加到这个模式下RunLoop的对象，会被所有mode处在common modes声明中的RunLoop监视。</p>
+</blockquote>
+<blockquote>
+<p>NSDefaultRunLoopMode：这个模式是用来处理除了NSConnection对象之外的输入源。</p>
+</blockquote>
+<blockquote>
+<p>NSEventTrackingRunLoopMode：这个模式适用用以下情况：鼠标拖拽循环。</p>
+</blockquote>
+<blockquote>
+<p>NSModalPanelRunLoopMode：当等待从遮罩层的输入，例如NSSavePanel、NSOpenPanel，一个RunLoop应当被设定为这个mode。</p>
+</blockquote>
+<blockquote>
+<p>UITrackingRunLoopMode：拖拽时设置为这个mode，你可以用这个模式来添加timer，这样拖拽时timer会继续触发。</p>
+</blockquote>
+</blockquote>
+<h3 id="管理Timers"><a href="#管理Timers" class="headerlink" title="管理Timers"></a>管理Timers</h3><p><strong>- addTimer:  forMode:</strong></p>
+<blockquote>
+<p>适用指定的input mode，注册一个给定的timer</p>
+</blockquote>
+<h3 id="管理端口"><a href="#管理端口" class="headerlink" title="管理端口"></a>管理端口</h3><p><strong>- addPort:  forMode:</strong></p>
+<blockquote>
+<p>添加一个port，作为输入源，添加到指定的mode中</p>
+</blockquote>
+<p><strong>- removePort:  forMode:</strong></p>
+<blockquote>
+<p>移除一个port，从指定的mode中</p>
+</blockquote>
+<h3 id="运行一个循环"><a href="#运行一个循环" class="headerlink" title="运行一个循环"></a>运行一个循环</h3><p><strong>- run</strong></p>
+<blockquote>
+<p>把接收者放进一个死循环中，在这个循环中，接收者会处理来自与它相连的输入源所输入的一切数据</p>
+</blockquote>
+<p><strong>- runMode:  beforeDate:</strong></p>
+<blockquote>
+<p>启动run loop一次，在特定的mode下等待输入，直到给定的时间</p>
+</blockquote>
+<p><strong>- runUntilDate:</strong></p>
+<blockquote>
+<p>启动run loop直到给定的时间，在这期间它会处理相连数据源的数据</p>
+</blockquote>
+<p><strong>- acceptInputForMode:  beforeDate:</strong></p>
+<blockquote>
+<p>启动run loop一次，或者直到指定的时间，只接受给定mode的输入</p>
+</blockquote>
+<h3 id="计划发送和取消发送消息"><a href="#计划发送和取消发送消息" class="headerlink" title="计划发送和取消发送消息"></a>计划发送和取消发送消息</h3><p><strong>- performSelector:  target:  argument:  order:  modes:</strong></p>
+<blockquote>
+<p>计划发送消息</p>
+</blockquote>
+<p><strong>- cancelPerformSelector:  target:  argument:</strong></p>
+<blockquote>
+<p>取消之前计划发送的消息</p>
+</blockquote>
+<p><strong>- cancelPerformSelectorsWithTarget:</strong></p>
+<blockquote>
+<p>取消指定目标的所有未响应的消息</p>
+</blockquote>
+<h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3><p><strong>- performBlock:</strong></p>
+<p><strong>- performInModes:  block:</strong></p>
 
       
     </div>
@@ -475,7 +563,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/隐私政策/" rel="tag"># 隐私政策</a>
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+            <a href="/tags/RunLoop/" rel="tag"># RunLoop</a>
           
         </div>
       
@@ -488,14 +578,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/04/08/iOS开发者文档译读-Dispatch/" rel="next" title="iOS开发者文档译读-Dispatch">
+                <i class="fa fa-chevron-left"></i> iOS开发者文档译读-Dispatch
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/08/iOS开发者文档译读-Dispatch/" rel="prev" title="iOS开发者文档译读-Dispatch">
-                iOS开发者文档译读-Dispatch <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/09/iOS开发者文档译读-NSTimer/" rel="prev" title="iOS开发者文档译读-NSTimer">
+                iOS开发者文档译读-NSTimer <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -689,7 +783,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#详情请见-隐私政策"><span class="nav-number">1.</span> <span class="nav-text">详情请见 隐私政策</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RunLoop"><span class="nav-number">1.</span> <span class="nav-text">RunLoop</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-number">1.1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#话题"><span class="nav-number">1.2.</span> <span class="nav-text">话题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取RunLoop和Mode"><span class="nav-number">1.2.1.</span> <span class="nav-text">获取RunLoop和Mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理Timers"><span class="nav-number">1.2.2.</span> <span class="nav-text">管理Timers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理端口"><span class="nav-number">1.2.3.</span> <span class="nav-text">管理端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行一个循环"><span class="nav-number">1.2.4.</span> <span class="nav-text">运行一个循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计划发送和取消发送消息"><span class="nav-number">1.2.5.</span> <span class="nav-text">计划发送和取消发送消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例方法"><span class="nav-number">1.2.6.</span> <span class="nav-text">实例方法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
