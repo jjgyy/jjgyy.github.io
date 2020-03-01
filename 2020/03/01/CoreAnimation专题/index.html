@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="《编写高质量iOS与OS X代码的52个有效方法》">
-<meta name="keywords" content="iOS,阅读笔记">
+  <meta name="description" content="CoreAnimationCoreAnimation官方文档">
+<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《编写高质量iOS与OS X代码的52个有效方法》阅读笔记">
-<meta property="og:url" content="http://yoursite.com/2019/04/14/《编写高质量iOS与OS-X代码的52个有效方法》阅读笔记/index.html">
+<meta property="og:title" content="CoreAnimation专题">
+<meta property="og:url" content="http://yoursite.com/2020/03/01/CoreAnimation专题/index.html">
 <meta property="og:site_name" content="Yueyang Gu">
-<meta property="og:description" content="《编写高质量iOS与OS X代码的52个有效方法》">
+<meta property="og:description" content="CoreAnimationCoreAnimation官方文档">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-14T09:06:53.435Z">
+<meta property="og:updated_time" content="2020-03-01T07:24:22.412Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《编写高质量iOS与OS X代码的52个有效方法》阅读笔记">
-<meta name="twitter:description" content="《编写高质量iOS与OS X代码的52个有效方法》">
+<meta name="twitter:title" content="CoreAnimation专题">
+<meta name="twitter:description" content="CoreAnimationCoreAnimation官方文档">
 
 
 
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/14/《编写高质量iOS与OS-X代码的52个有效方法》阅读笔记/">
+  <link rel="canonical" href="http://yoursite.com/2020/03/01/CoreAnimation专题/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>《编写高质量iOS与OS X代码的52个有效方法》阅读笔记 | Yueyang Gu</title>
+  <title>CoreAnimation专题 | Yueyang Gu</title>
   
 
 
@@ -339,7 +339,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/14/《编写高质量iOS与OS-X代码的52个有效方法》阅读笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/01/CoreAnimation专题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yueyang Gu">
@@ -356,7 +356,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">《编写高质量iOS与OS X代码的52个有效方法》阅读笔记
+          <h1 class="post-title" itemprop="name headline">CoreAnimation专题
 
               
             
@@ -382,7 +382,7 @@
                 
               
 
-              <time title="创建时间：2019-04-14 16:33:08 / 修改时间：17:06:53" itemprop="dateCreated datePublished" datetime="2019-04-14T16:33:08+08:00">2019-04-14</time>
+              <time title="创建时间：2020-03-01 14:52:13 / 修改时间：15:24:22" itemprop="dateCreated datePublished" datetime="2020-03-01T14:52:13+08:00">2020-03-01</time>
             
 
             
@@ -439,19 +439,17 @@
       
 
       
-        <h2 id="《编写高质量iOS与OS-X代码的52个有效方法》"><a href="#《编写高质量iOS与OS-X代码的52个有效方法》" class="headerlink" title="《编写高质量iOS与OS X代码的52个有效方法》"></a>《编写高质量iOS与OS X代码的52个有效方法》</h2><a id="more"></a>
+        <h2 id="CoreAnimation"><a href="#CoreAnimation" class="headerlink" title="CoreAnimation"></a>CoreAnimation</h2><p><a href="https://developer.apple.com/documentation/quartzcore" target="_blank" rel="noopener">CoreAnimation官方文档</a></p>
+<a id="more"></a>
 <hr>
-<h3 id="第4条：多用类型常量，少用-define预处理指令"><a href="#第4条：多用类型常量，少用-define预处理指令" class="headerlink" title="第4条：多用类型常量，少用#define预处理指令"></a>第4条：多用类型常量，少用#define预处理指令</h3><ul>
-<li><p>不要用预处理指令定义常量。这样定义出来的常量<strong>不含类型信息</strong>，编译器只是在编译前做替换操作。即使有人重新定义，编译器也不会产生警告。</p>
-</li>
-<li><p>在实现文件中使用<strong>static const</strong>来定义只在编译单元内可见的常量。由于此常量不在全局符号表中，所以无须为其名称加前缀。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 尽量少使用</span></span><br><span class="line"><span class="comment">// #define ANIMATION_DURATION 0.3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 常量局限于implementation file之内，则在变量名前面加字母k</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> NSTimeInterval kAnimationDuration = <span class="number">0.3</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在头文件中使用<strong>extern const</strong>来声明全局常量，并在相应实现文件中定义其值。这种常量要出现在全局符号表中，所以其名称应加一区隔，通常用与之相关的类名做前缀。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// EOCAnimatedView.h</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">const</span> NSTimeInterval EOCAnimatedViewAnimationDuration;</span><br><span class="line"><span class="keyword">extern</span> NSString * <span class="keyword">const</span> EOCLoginManagerDidLoginNotification;</span><br><span class="line"></span><br><span class="line"><span class="comment">// EOCAnimatedView.m</span></span><br><span class="line"><span class="keyword">const</span> NSTimeInterval EOCAnimatedViewAnimationDuration = <span class="number">0.3</span>;</span><br><span class="line">NSString * <span class="keyword">const</span> EOCLoginManagerDidLoginNotification = @<span class="string">"EOCLoginManagerDidLoginNotification"</span>;</span><br></pre></td></tr></table></figure>
-</li>
+<h3 id="CALayer"><a href="#CALayer" class="headerlink" title="CALayer"></a>CALayer</h3><p>CALayer与UIView是平行关系，CALayer负责处理显示相关，UIVIew负责处理触控相关。</p>
+<ul>
+<li>doubleSided: 设置双面渲染，决定180度旋转后是否显示</li>
 </ul>
-<hr>
+<h3 id="CABasicAnimation"><a href="#CABasicAnimation" class="headerlink" title="CABasicAnimation"></a>CABasicAnimation</h3><h4 id="平移动画案例"><a href="#平移动画案例" class="headerlink" title="平移动画案例"></a>平移动画案例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">CABasicAnimation * animation = [CABasicAnimation animation];</span><br><span class="line">animation.keyPath = @&quot;position.y&quot;;</span><br><span class="line">animation.toValue = @400;</span><br><span class="line">animation.duration = 1;</span><br><span class="line">animation.removedOnCompletion = NO;</span><br><span class="line">    </span><br><span class="line">/**</span><br><span class="line"> kCAFillModeForwards</span><br><span class="line"> kCAFillModeBackwards</span><br><span class="line"> kCAFillModeBoth</span><br><span class="line"> kCAFillModeRemoved</span><br><span class="line"> */</span><br><span class="line">animation.fillMode = kCAFillModeForwards;</span><br><span class="line">    </span><br><span class="line">[self.layer addAnimation:animation forKey:nil];</span><br></pre></td></tr></table></figure>
+<h3 id="CATransform3D"><a href="#CATransform3D" class="headerlink" title="CATransform3D"></a>CATransform3D</h3><h4 id="平面投影案例"><a href="#平面投影案例" class="headerlink" title="平面投影案例"></a>平面投影案例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CATransform3D transform1 = CATransform3DMakeRotation(M_PI, 0, 1, 0);</span><br><span class="line">self.layer.transform = transform1;</span><br></pre></td></tr></table></figure>
+<h4 id="透视投影案例"><a href="#透视投影案例" class="headerlink" title="透视投影案例"></a>透视投影案例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CATransform3D transform = CATransform3DIdentity;</span><br><span class="line">transform.m34 = -1.0/500.0; //矩阵因子m34决定灭点</span><br><span class="line">self.view.layer.sublayerTransform = transform;	//所有子layer套用相同透视</span><br><span class="line">CATransform3D transform1 = CATransform3DMakeRotation(M_PI_4, 1, 0, 0);</span><br><span class="line">self.layer.transform = transform1;</span><br></pre></td></tr></table></figure>
+<h4 id="旋转动画案例"><a href="#旋转动画案例" class="headerlink" title="旋转动画案例"></a>旋转动画案例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">NSThread * thread = [[NSThread alloc] initWithBlock:^&#123;</span><br><span class="line">        __block int count = 0;</span><br><span class="line">        NSTimer * timer = [NSTimer timerWithTimeInterval:0.1 repeats:YES block:^(NSTimer * _Nonnull timer) &#123;</span><br><span class="line">            count ++;</span><br><span class="line">            CATransform3D transform = CATransform3DIdentity;</span><br><span class="line">            transform.m34 = -1.0 / 500.0;</span><br><span class="line">            transform = CATransform3DRotate(transform, M_PI / 20 * count, 0, 1, 0);</span><br><span class="line">            self.layer.transform = transform;</span><br><span class="line">        &#125;];</span><br><span class="line">        [NSRunLoop.currentRunLoop addTimer:timer forMode:NSRunLoopCommonModes];</span><br><span class="line">        [NSRunLoop.currentRunLoop run];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">[thread start];</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -477,8 +475,6 @@
           
             <a href="/tags/iOS/" rel="tag"># iOS</a>
           
-            <a href="/tags/阅读笔记/" rel="tag"># 阅读笔记</a>
-          
         </div>
       
 
@@ -490,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/13/Cocoapods问题汇总/" rel="next" title="Cocoapods问题汇总">
-                <i class="fa fa-chevron-left"></i> Cocoapods问题汇总
+              <a href="/2019/05/25/iOS下-Popover弹窗-的配置方法/" rel="next" title="iOS下'Popover弹窗'的配置方法">
+                <i class="fa fa-chevron-left"></i> iOS下'Popover弹窗'的配置方法
               </a>
             
           </div>
@@ -499,10 +495,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/14/OC链式编程/" rel="prev" title="链式编程">
-                链式编程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -705,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#《编写高质量iOS与OS-X代码的52个有效方法》"><span class="nav-number">1.</span> <span class="nav-text">《编写高质量iOS与OS X代码的52个有效方法》</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第4条：多用类型常量，少用-define预处理指令"><span class="nav-number">1.1.</span> <span class="nav-text">第4条：多用类型常量，少用#define预处理指令</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CoreAnimation"><span class="nav-number">1.</span> <span class="nav-text">CoreAnimation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CALayer"><span class="nav-number">1.1.</span> <span class="nav-text">CALayer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CABasicAnimation"><span class="nav-number">1.2.</span> <span class="nav-text">CABasicAnimation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#平移动画案例"><span class="nav-number">1.2.1.</span> <span class="nav-text">平移动画案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CATransform3D"><span class="nav-number">1.3.</span> <span class="nav-text">CATransform3D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#平面投影案例"><span class="nav-number">1.3.1.</span> <span class="nav-text">平面投影案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#透视投影案例"><span class="nav-number">1.3.2.</span> <span class="nav-text">透视投影案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#旋转动画案例"><span class="nav-number">1.3.3.</span> <span class="nav-text">旋转动画案例</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
