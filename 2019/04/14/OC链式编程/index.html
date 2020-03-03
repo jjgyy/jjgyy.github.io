@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="链式编程概览所谓的链式编程就是可以通过”点”语法，将需要执行的代码块连续的书写下去，使得代码简单易读，书写方便。">
+  <meta name="description" content="所谓的链式编程就是可以通过”点”语法，将需要执行的代码块连续的书写下去，使得代码简单易读，书写方便。">
 <meta name="keywords" content="编程思想,链式编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="链式编程">
 <meta property="og:url" content="http://yoursite.com/2019/04/14/OC链式编程/index.html">
 <meta property="og:site_name" content="Yueyang Gu">
-<meta property="og:description" content="链式编程概览所谓的链式编程就是可以通过”点”语法，将需要执行的代码块连续的书写下去，使得代码简单易读，书写方便。">
+<meta property="og:description" content="所谓的链式编程就是可以通过”点”语法，将需要执行的代码块连续的书写下去，使得代码简单易读，书写方便。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-14T13:46:18.812Z">
+<meta property="og:updated_time" content="2020-03-03T12:55:18.589Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="链式编程">
-<meta name="twitter:description" content="链式编程概览所谓的链式编程就是可以通过”点”语法，将需要执行的代码块连续的书写下去，使得代码简单易读，书写方便。">
+<meta name="twitter:description" content="所谓的链式编程就是可以通过”点”语法，将需要执行的代码块连续的书写下去，使得代码简单易读，书写方便。">
 
 <link rel="canonical" href="http://yoursite.com/2019/04/14/OC链式编程/">
 
@@ -181,10 +181,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-04-14 21:29:21 / 修改时间：21:46:18" itemprop="dateCreated datePublished" datetime="2019-04-14T21:29:21+08:00">2019-04-14</time>
+              <time title="创建时间：2019-04-14 21:29:21" itemprop="dateCreated datePublished" datetime="2019-04-14T21:29:21+08:00">2019-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-03 20:55:18" itemprop="dateModified" datetime="2020-03-03T20:55:18+08:00">2020-03-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -206,7 +212,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="链式编程"><a href="#链式编程" class="headerlink" title="链式编程"></a>链式编程</h1><h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>所谓的链式编程就是可以通过”点”语法，将需要执行的代码块连续的书写下去，使得代码简单易读，书写方便。</p>
+        <p>所谓的链式编程就是可以通过”点”语法，将需要执行的代码块连续的书写下去，使得代码简单易读，书写方便。</p>
 <a id="more"></a>
 <hr>
 <h2 id="OC举例"><a href="#OC举例" class="headerlink" title="OC举例"></a>OC举例</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Person.m</span></span><br><span class="line">- (Person * (^)(NSString *))eat &#123;</span><br><span class="line">    Person * (^block)(NSString *) = ^Person * (NSString * food) &#123;</span><br><span class="line">        NSLog(@<span class="string">"I am eating %@"</span>, food);</span><br><span class="line">        <span class="keyword">return</span> self;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)drink &#123;</span><br><span class="line">    NSLog(@<span class="string">"I am drinking"</span>);</span><br><span class="line">    <span class="keyword">return</span> self;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// main.m</span></span><br><span class="line">Person * person = [Person <span class="keyword">new</span>];</span><br><span class="line">person.eat(@<span class="string">"chicken"</span>).drink;</span><br></pre></td></tr></table></figure>
@@ -233,8 +239,8 @@
       <i class="fa fa-chevron-left"></i> 《编写高质量iOS与OS X代码的52个有效方法》阅读笔记
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/04/25/iOS布局工具-Reveal使用笔记/" rel="next" title="iOS布局工具-Reveal使用笔记">
-      iOS布局工具-Reveal使用笔记 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/05/06/iOS下-用其他应用打开-的配制方法/" rel="next" title="iOS下'用其他应用打开'的配制方法">
+      iOS下'用其他应用打开'的配制方法 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -295,7 +301,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#链式编程"><span class="nav-number">1.</span> <span class="nav-text">链式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-number">1.1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OC举例"><span class="nav-number">1.2.</span> <span class="nav-text">OC举例</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OC举例"><span class="nav-number">1.</span> <span class="nav-text">OC举例</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -309,7 +315,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

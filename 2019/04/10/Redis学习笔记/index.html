@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="概览 REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Hash">
+  <meta name="description" content="REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Hash),">
 <meta name="keywords" content="数据库,Redis,NoSQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis学习笔记">
 <meta property="og:url" content="http://yoursite.com/2019/04/10/Redis学习笔记/index.html">
 <meta property="og:site_name" content="Yueyang Gu">
-<meta property="og:description" content="概览 REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Hash">
+<meta property="og:description" content="REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Hash),">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-10T03:39:07.119Z">
+<meta property="og:updated_time" content="2020-03-03T12:55:50.691Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis学习笔记">
-<meta name="twitter:description" content="概览 REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Hash">
+<meta name="twitter:description" content="REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Hash),">
 
 <link rel="canonical" href="http://yoursite.com/2019/04/10/Redis学习笔记/">
 
@@ -181,10 +181,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-04-10 10:54:28 / 修改时间：11:39:07" itemprop="dateCreated datePublished" datetime="2019-04-10T10:54:28+08:00">2019-04-10</time>
+              <time title="创建时间：2019-04-10 10:54:28" itemprop="dateCreated datePublished" datetime="2019-04-10T10:54:28+08:00">2019-04-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-03 20:55:50" itemprop="dateModified" datetime="2020-03-03T20:55:50+08:00">2020-03-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -206,9 +212,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><blockquote>
-<p>REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。<br>Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。<br>它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Hash), 列表(list), 集合(sets) 和 有序集合(sorted sets)等类型。</p>
-</blockquote>
+        <p>REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。<br>Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。<br>它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Hash), 列表(list), 集合(sets) 和 有序集合(sorted sets)等类型。</p>
 <a id="more"></a>
 <hr>
 <h2 id="Linux下启动"><a href="#Linux下启动" class="headerlink" title="Linux下启动"></a>Linux下启动</h2><blockquote>
@@ -357,7 +361,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下启动"><span class="nav-number">2.</span> <span class="nav-text">Linux下启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本语法"><span class="nav-number">3.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SET"><span class="nav-number">3.1.</span> <span class="nav-text">SET</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET"><span class="nav-number">3.2.</span> <span class="nav-text">GET</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DEL"><span class="nav-number">3.3.</span> <span class="nav-text">DEL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DUMP"><span class="nav-number">3.4.</span> <span class="nav-text">DUMP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EXISTS"><span class="nav-number">3.5.</span> <span class="nav-text">EXISTS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EXPIRE"><span class="nav-number">3.6.</span> <span class="nav-text">EXPIRE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EXPIREAT"><span class="nav-number">3.7.</span> <span class="nav-text">EXPIREAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PEXPIRE-key-milliseconds"><span class="nav-number">3.8.</span> <span class="nav-text">PEXPIRE key milliseconds</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PEXPIREAT"><span class="nav-number">3.9.</span> <span class="nav-text">PEXPIREAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KEYS"><span class="nav-number">3.10.</span> <span class="nav-text">KEYS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MOVE"><span class="nav-number">3.11.</span> <span class="nav-text">MOVE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PERSIST"><span class="nav-number">3.12.</span> <span class="nav-text">PERSIST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PTTL"><span class="nav-number">3.13.</span> <span class="nav-text">PTTL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TTL"><span class="nav-number">3.14.</span> <span class="nav-text">TTL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RANDOMKEY"><span class="nav-number">3.15.</span> <span class="nav-text">RANDOMKEY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RENAME"><span class="nav-number">3.16.</span> <span class="nav-text">RENAME</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RENAMENX"><span class="nav-number">3.17.</span> <span class="nav-text">RENAMENX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TYPE"><span class="nav-number">3.18.</span> <span class="nav-text">TYPE</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下启动"><span class="nav-number">1.</span> <span class="nav-text">Linux下启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本语法"><span class="nav-number">2.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SET"><span class="nav-number">2.1.</span> <span class="nav-text">SET</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET"><span class="nav-number">2.2.</span> <span class="nav-text">GET</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DEL"><span class="nav-number">2.3.</span> <span class="nav-text">DEL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DUMP"><span class="nav-number">2.4.</span> <span class="nav-text">DUMP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EXISTS"><span class="nav-number">2.5.</span> <span class="nav-text">EXISTS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EXPIRE"><span class="nav-number">2.6.</span> <span class="nav-text">EXPIRE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EXPIREAT"><span class="nav-number">2.7.</span> <span class="nav-text">EXPIREAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PEXPIRE-key-milliseconds"><span class="nav-number">2.8.</span> <span class="nav-text">PEXPIRE key milliseconds</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PEXPIREAT"><span class="nav-number">2.9.</span> <span class="nav-text">PEXPIREAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KEYS"><span class="nav-number">2.10.</span> <span class="nav-text">KEYS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MOVE"><span class="nav-number">2.11.</span> <span class="nav-text">MOVE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PERSIST"><span class="nav-number">2.12.</span> <span class="nav-text">PERSIST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PTTL"><span class="nav-number">2.13.</span> <span class="nav-text">PTTL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TTL"><span class="nav-number">2.14.</span> <span class="nav-text">TTL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RANDOMKEY"><span class="nav-number">2.15.</span> <span class="nav-text">RANDOMKEY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RENAME"><span class="nav-number">2.16.</span> <span class="nav-text">RENAME</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RENAMENX"><span class="nav-number">2.17.</span> <span class="nav-text">RENAMENX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TYPE"><span class="nav-number">2.18.</span> <span class="nav-text">TYPE</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -371,7 +375,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

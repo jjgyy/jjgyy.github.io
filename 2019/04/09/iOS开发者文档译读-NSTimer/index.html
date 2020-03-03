@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="NSTimer 概览 Timer与run loop结合使用。Run loop对它所拥有的timer进行强引用，所以在将其加入run loop后，你不必再自行强引用它。为了高效使用timer，你应该意识到run loop是怎么运作的。详情请看Threading Programming Guide。一个timer不是一个实时机制。如果一个有较短触发时间的timer处在一个很长时间的run loop中，">
+  <meta name="description" content="Timer与run loop结合使用。Run loop对它所拥有的timer进行强引用，所以在将其加入run loop后，你不必再自行强引用它。为了高效使用timer，你应该意识到run loop是怎么运作的。详情请看Threading Programming Guide。一个timer不是一个实时机制。如果一个有较短触发时间的timer处在一个很长时间的run loop中，或者run loop处">
 <meta name="keywords" content="iOS,NSTimer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发者文档译读-NSTimer">
 <meta property="og:url" content="http://yoursite.com/2019/04/09/iOS开发者文档译读-NSTimer/index.html">
 <meta property="og:site_name" content="Yueyang Gu">
-<meta property="og:description" content="NSTimer 概览 Timer与run loop结合使用。Run loop对它所拥有的timer进行强引用，所以在将其加入run loop后，你不必再自行强引用它。为了高效使用timer，你应该意识到run loop是怎么运作的。详情请看Threading Programming Guide。一个timer不是一个实时机制。如果一个有较短触发时间的timer处在一个很长时间的run loop中，">
+<meta property="og:description" content="Timer与run loop结合使用。Run loop对它所拥有的timer进行强引用，所以在将其加入run loop后，你不必再自行强引用它。为了高效使用timer，你应该意识到run loop是怎么运作的。详情请看Threading Programming Guide。一个timer不是一个实时机制。如果一个有较短触发时间的timer处在一个很长时间的run loop中，或者run loop处">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-14T08:35:06.073Z">
+<meta property="og:updated_time" content="2020-03-03T12:56:41.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发者文档译读-NSTimer">
-<meta name="twitter:description" content="NSTimer 概览 Timer与run loop结合使用。Run loop对它所拥有的timer进行强引用，所以在将其加入run loop后，你不必再自行强引用它。为了高效使用timer，你应该意识到run loop是怎么运作的。详情请看Threading Programming Guide。一个timer不是一个实时机制。如果一个有较短触发时间的timer处在一个很长时间的run loop中，">
+<meta name="twitter:description" content="Timer与run loop结合使用。Run loop对它所拥有的timer进行强引用，所以在将其加入run loop后，你不必再自行强引用它。为了高效使用timer，你应该意识到run loop是怎么运作的。详情请看Threading Programming Guide。一个timer不是一个实时机制。如果一个有较短触发时间的timer处在一个很长时间的run loop中，或者run loop处">
 
 <link rel="canonical" href="http://yoursite.com/2019/04/09/iOS开发者文档译读-NSTimer/">
 
@@ -189,7 +189,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-04-14 16:35:06" itemprop="dateModified" datetime="2019-04-14T16:35:06+08:00">2019-04-14</time>
+                <time title="修改时间：2020-03-03 20:56:41" itemprop="dateModified" datetime="2020-03-03T20:56:41+08:00">2020-03-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -212,10 +212,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="NSTimer"><a href="#NSTimer" class="headerlink" title="NSTimer"></a><a href="https://developer.apple.com/documentation/foundation/nstimer?language=objc" target="_blank" rel="noopener">NSTimer</a></h1><hr>
-<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><blockquote>
-<p>Timer与run loop结合使用。Run loop对它所拥有的timer进行强引用，所以在将其加入run loop后，你不必再自行强引用它。<br>为了高效使用timer，你应该意识到run loop是怎么运作的。详情请看<a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/Introduction/Introduction.html" target="_blank" rel="noopener">Threading Programming Guide</a>。<br>一个timer不是一个实时机制。如果一个有较短触发时间的timer处在一个很长时间的run loop中，或者run loop处在不监听timer的模式中，timer在本次run loop中便不会触发，直到下次run loop检查timer。所以，timer触发的实际时间可能比预期的晚。<br>NSTimer可以与CFRunLoopTimerRef无缝桥接。</p>
-</blockquote>
+        <p>Timer与run loop结合使用。Run loop对它所拥有的timer进行强引用，所以在将其加入run loop后，你不必再自行强引用它。<br>为了高效使用timer，你应该意识到run loop是怎么运作的。详情请看<a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/Introduction/Introduction.html" target="_blank" rel="noopener">Threading Programming Guide</a>。<br>一个timer不是一个实时机制。如果一个有较短触发时间的timer处在一个很长时间的run loop中，或者run loop处在不监听timer的模式中，timer在本次run loop中便不会触发，直到下次run loop检查timer。所以，timer触发的实际时间可能比预期的晚。<br>NSTimer可以与CFRunLoopTimerRef无缝桥接。</p>
 <a id="more"></a>
 <hr>
 <h2 id="对比repeating和Nonrepeating-Timers"><a href="#对比repeating和Nonrepeating-Timers" class="headerlink" title="对比repeating和Nonrepeating Timers"></a>对比repeating和Nonrepeating Timers</h2>
@@ -303,7 +300,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NSTimer"><span class="nav-number">1.</span> <span class="nav-text">NSTimer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-number">1.1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对比repeating和Nonrepeating-Timers"><span class="nav-number">1.2.</span> <span class="nav-text">对比repeating和Nonrepeating Timers</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对比repeating和Nonrepeating-Timers"><span class="nav-number">1.</span> <span class="nav-text">对比repeating和Nonrepeating Timers</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -317,7 +314,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
