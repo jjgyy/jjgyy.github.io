@@ -20,15 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Yueyang Gu">
-<meta property="og:url" content="http://yoursite.com/tags/iOS/page/2/index.html">
+  <meta name="description" content="响应式编程In computing, reactive programming is a declarative programming paradigm concerned with data streams and the propagation of change. With this paradigm it is possible to express static (e.g., arra">
+<meta name="keywords" content="iOS,响应式编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="仿ReactiveCocoa实现响应式编程框架">
+<meta property="og:url" content="http://yoursite.com/2020/03/17/仿ReactiveCocoa实现响应式编程框架/index.html">
 <meta property="og:site_name" content="Yueyang Gu">
+<meta property="og:description" content="响应式编程In computing, reactive programming is a declarative programming paradigm concerned with data streams and the propagation of change. With this paradigm it is possible to express static (e.g., arra">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-17T10:06:24.652Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yueyang Gu">
+<meta name="twitter:title" content="仿ReactiveCocoa实现响应式编程框架">
+<meta name="twitter:description" content="响应式编程In computing, reactive programming is a declarative programming paradigm concerned with data streams and the propagation of change. With this paradigm it is possible to express static (e.g., arra">
 
-<link rel="canonical" href="http://yoursite.com/tags/iOS/page/2/">
+<link rel="canonical" href="http://yoursite.com/2020/03/17/仿ReactiveCocoa实现响应式编程框架/">
 
 
 <script id="page-configurations">
@@ -36,11 +41,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false
+    isPost : true
   };
 </script>
 
-  <title>标签: iOS | Yueyang Gu</title>
+  <title>仿ReactiveCocoa实现响应式编程框架 | Yueyang Gu</title>
   
 
 
@@ -149,73 +154,99 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">iOS
-          <small>标签</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/17/仿ReactiveCocoa实现响应式编程框架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yueyang Gu">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yueyang Gu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          仿ReactiveCocoa实现响应式编程框架
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-17 16:33:26 / 修改时间：18:06:24" itemprop="dateCreated datePublished" datetime="2020-03-17T16:33:26+08:00">2020-03-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-08T17:04:23+08:00"
-              content="2019-04-08">
-          04-08
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/04/08/iOS开发者文档译读-RunLoop/" itemprop="url">
-            <span itemprop="name">iOS开发者文档译读-RunLoop</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-03-27T13:39:58+08:00"
-              content="2019-03-27">
-          03-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/03/27/iOS开发者文档译读-Dispatch/" itemprop="url">
-            <span itemprop="name">iOS开发者文档译读-Dispatch</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
+        <h1 id="响应式编程"><a href="#响应式编程" class="headerlink" title="响应式编程"></a>响应式编程</h1><p>In computing, <strong>reactive programming</strong> is a declarative programming paradigm concerned with data streams and the propagation of change. With this paradigm it is possible to express static (e.g., arrays) or dynamic (e.g., event emitters) <em>data streams</em> with ease, and also communicate that an inferred dependency within the associated <em>execution model</em> exists, which facilitates the automatic propagation of the changed data flow.</p>
+<a id="more"></a>
+<h1 id="实现响应式框架"><a href="#实现响应式框架" class="headerlink" title="实现响应式框架"></a>实现响应式框架</h1><h2 id="信号"><a href="#信号" class="headerlink" title="信号"></a>信号</h2><h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><p>对NSObject进行扩展，增加产生信号的实例方法。</p>
+<p>每个信号对应一个需要被响应的事件。信号按照命名规范命名并绑定在实例上。</p>
+<p>信号内记录所有订阅者，如此一来，事件触发时信号便会通知所有订阅者响应。</p>
+<h2 id="对selector的响应"><a href="#对selector的响应" class="headerlink" title="对selector的响应"></a>对selector的响应</h2><h3 id="实现方式-1"><a href="#实现方式-1" class="headerlink" title="实现方式"></a>实现方式</h3><p>所有被订阅的method在被调用前，都需要发出信号去告知所有该事件的观察者。</p>
+<p>既然所有被订阅的method调用前都需要执行信号发送流程，那么可以把这个信号发送流程写入forwardInvocation内。</p>
+<p>之后通过重设被订阅的method的imp指针为_objc_msgForward，将被订阅的method直接导向消息转发流程。</p>
+<p>同时将被订阅的method原有的imp指针交给动态创建的别名方法，在forwardInvocation完成信号发送后，再调用别名方法。</p>
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/iOS/" rel="tag"># iOS</a>
+              <a href="/tags/响应式编程/" rel="tag"># 响应式编程</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/13/Cocoapods官方文档探究/" rel="prev" title="Cocoapods官方文档探究">
+      <i class="fa fa-chevron-left"></i> Cocoapods官方文档探究
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/iOS/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/tags/iOS/">1</a><span class="page-number current">2</span>
-  </nav>
-
 
 
           </div>
@@ -266,6 +297,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#响应式编程"><span class="nav-number">1.</span> <span class="nav-text">响应式编程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现响应式框架"><span class="nav-number">2.</span> <span class="nav-text">实现响应式框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信号"><span class="nav-number">2.1.</span> <span class="nav-text">信号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现方式"><span class="nav-number">2.1.1.</span> <span class="nav-text">实现方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对selector的响应"><span class="nav-number">2.2.</span> <span class="nav-text">对selector的响应</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现方式-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">实现方式</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
